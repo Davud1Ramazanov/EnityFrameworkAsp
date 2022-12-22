@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DapperAsp.Controllers
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("[controller]")]
     public class CategoryController : ControllerBase
     {
         private static gadgetstore_dbContext gadgetstore_models = new gadgetstore_dbContext();
@@ -37,7 +37,7 @@ namespace DapperAsp.Controllers
                 gadgetstore_models.SaveChanges();
                 return Results.Ok();
             }
-            return Results.BadRequest();
+            return Results.NotFound();
         }
 
         [HttpPost]
@@ -52,7 +52,7 @@ namespace DapperAsp.Controllers
                 gadgetstore_models.SaveChanges();
                 return Results.Ok();
             }
-            return Results.BadRequest();
+            return Results.NotFound();
         }
 
         [HttpGet]
